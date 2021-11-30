@@ -1,16 +1,17 @@
-const {sequelize, DataTypes, Model} = require('../sequelize_index');
+const { db, DataTypes, Model } = require("../sequelize_index");
 
-class MenuItem extends Model {
-
-}
-MenuItem.init({
+class MenuItem extends Model {}
+MenuItem.init(
+  {
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
-}, {
-    sequelize,
+  },
+  {
+    sequelize: db,
     timestamps: false,
-});
+  }
+);
 
 module.exports = {
-    MenuItem
+  MenuItem,
 };
