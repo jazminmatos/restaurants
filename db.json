@@ -29,31 +29,46 @@
 
   "menus": [
     {
-      "title": "Breakfast"
+      "title": "Breakfast",
+      "restaurant_id": 1
     },
     {
-      "title": "Lunch"
+      "title": "Lunch",
+      "restaurant_id": 1
     },
     {
-      "title": "Dinner"
+      "title": "Dinner",
+      "restaurant_id": 1
+    },
+    {
+      "title": "Lunch",
+      "restaurant_id": 3
+    },
+    {
+      "title": "Brunch",
+      "restaurant_id": 3
     }
   ],
   "menuItems": [
     {
       "name": "Houmous Shawarma Lamb",
-      "price": 6.5
+      "price": 6.5,
+      "menu_id": 1
     },
     {
       "name": "Lamb Parcels",
-      "price": 5.7
+      "price": 5.7,
+      "menu_id": 1
     },
     {
       "name": "Meat Balls (Kebbeh)",
-      "price": 6.5
+      "price": 6.5,
+      "menu_id": 3
     },
     {
       "name": "Falafel (v)",
-      "price": 5.0
+      "price": 5.0,
+      "menu_id": 2
     }
   ]
 }
