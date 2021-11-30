@@ -32,22 +32,47 @@ server.use(express.json());
 
 seed();
 
-// Test
-server.get("/", (req, res) => {
-  console.log("hello");
-  res.send("Hi");
-});
-
-// November 29th Assignment:
-server.get("/web/restaurants", async (req, res) => {
+/* ----- READ ----- */
+// Get all restaurants
+server.get("/restaurants", async (req, res) => {
   const restaurants = await Restaurant.findAll();
   res.render("restaurants", { restaurants });
 });
 
-// this route returns HTML for a single restaurant
-server.get("/web/restaurants/:id", async (req, res) => {
+// Get one restaurant
+server.get("/restaurants/:id", async (req, res) => {
   const restaurant = await Restaurant.findByPk(req.params.id);
   res.render("restaurant", { restaurant });
+});
+
+// Get menus from restaurant
+server.get("/restaurants/:id/menus", async (req, res) => {
+  const id = req.params.id;
+  const menus = await Menu.findAll({
+    where: {
+      restaurant_id: id,
+    },
+  });
+
+  const restaurant = await Restaurant.findByPk(id);
+
+  res.render("menus", { menus, restaurant });
+});
+
+// Get selected menu from restaurant
+server.get("/restaurants/:id/menus/:menuid", async (req, res) => {
+  const id = req.params.id;
+  const menuid = req.params.menuid;
+  const menu = await Menu.findByPk(menuid);
+
+  const menuItems = await MenuItem.findAll({
+    where: {
+      menu_id: menuid,
+    },
+  });
+  const restaurant = await Restaurant.findByPk(id);
+
+  res.render("menuitem", { menu, menuItems, restaurant });
 });
 
 server.listen(port, () => {
