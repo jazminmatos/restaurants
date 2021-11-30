@@ -1,9 +1,9 @@
-const {Sequelize, DataTypes, Model} = require('sequelize')
+const { Sequelize, DataTypes, Model } = require("sequelize");
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-    dialect: 'sqlite',
-    storage: './restaurants-seq.sqlite',
-    logging: false
-})
+const db = new Sequelize("database", "username", "password", {
+  dialect: "sqlite",
+  storage: "./restaurants-seq.sqlite",
+  logging: false,
+});
 
-module.exports={sequelize, DataTypes, Model}
+module.exports = { db, DataTypes, Model };
