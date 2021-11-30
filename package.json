@@ -1,0 +1,31 @@
+{
+  "name": "restaurants",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jazminmatos/restaurants.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jazminmatos/restaurants/issues"
+  },
+  "homepage": "https://github.com/jazminmatos/restaurants#readme",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.5",
+    "express-validator": "^6.13.0",
+    "handlebars": "^4.7.7",
+    "jest": "^27.4.2",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.12.0-alpha.1",
+    "sqlite3": "^5.0.2"
+  }
+}
