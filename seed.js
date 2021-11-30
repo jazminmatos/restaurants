@@ -30,5 +30,5 @@ const seed = async () => {
   console.log("restuarant data has been successfully populated into our table");
 };
 
-//export this seed function
+// export this seed function
 module.exports = seed;

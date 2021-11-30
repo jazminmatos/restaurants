@@ -1,3 +1,4 @@
+// Menu Item model
 const { db, DataTypes, Model } = require("../sequelize_index");
 
 class MenuItem extends Model {}

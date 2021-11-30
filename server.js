@@ -14,7 +14,7 @@ const handlebars = expressHandlebars({
 // Import models
 const { Restaurant, Menu, MenuItem } = require("./Model");
 
-// Import seed
+// Import the seed
 const seed = require("./seed");
 
 // serve static assets from the public/ folder

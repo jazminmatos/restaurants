@@ -1,3 +1,4 @@
+// Restuarant Model
 const { db, DataTypes, Model } = require("../sequelize_index");
 
 class Restaurant extends Model {}
