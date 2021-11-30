@@ -1,0 +1,41 @@
+<div id="menuItem">
+  <div class="display-menu-items display">
+    <div>
+      <h2>{{restaurant.name}} : {{menu.title}}</h2>
+    </div>
+
+    <div class="menu-items">
+      <ul class="menu-item-list">
+        {{! map and display menu items }}
+
+        {{#each menuItems}}
+          <li key={{this.name}}>{{this.name}} ----- {{this.price}}</li>
+        {{/each}}
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="menu-item-form">
+    <form action="">
+      <label for="menu-item-name">Item name</label><br />
+      <input
+        type="text"
+        class="menu-item-name menu-item-input"
+        name="menu-item-name"
+        value=""
+      />
+      <br />
+      <label for="menu-item-price">Price:</label><br />
+      <input
+        type="text"
+        class="menu-item-price menu-item-input"
+        name="menu-item-price"
+        value="Doe"
+      /><br /><br />
+      <input type="submit" value="Add" />
+    </form>
+
+  </div>
+
+</div>
