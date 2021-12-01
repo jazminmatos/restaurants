@@ -68,3 +68,30 @@ li {
     display: inline;
     margin: 10px;
 }
+
+/* Single restaurant CSS */
+
+.single-restaurant {
+    background-color: #eabfcb;
+    width: 100%;
+    height: 700px;
+    margin-top: 10px;
+}
+
+h2{
+    text-align: center;
+}
+
+.food-menus{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.food {
+    background-color: khaki;
+    height: 200px;
+    width: 150px;
+    margin: 5px;
+    text-align: center;
+}

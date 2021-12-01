@@ -42,7 +42,12 @@ server.get("/restaurants", async (req, res) => {
 // Get one restaurant
 server.get("/restaurants/:id", async (req, res) => {
   const restaurant = await Restaurant.findByPk(req.params.id);
-  res.render("restaurant", { restaurant });
+  const menus = await Menu.findAll({
+    where: {
+      restaurant_id: req.params.id,
+    },
+  });
+  res.render("restaurant", { restaurant, menus });
 });
 
 // Get menus from restaurant
@@ -72,8 +77,15 @@ server.get("/restaurants/:id/menus/:menuid", async (req, res) => {
   });
   const restaurant = await Restaurant.findByPk(id);
 
-  res.render("menuitem", { menu, menuItems, restaurant });
+  res.render({ menu, menuItems, restaurant });
+
 });
+
+server.post("/menu", async(req,res) => {
+ 
+  const menu = await Menu.create(req.body);
+  res.redirect(`/menu/${menu.id}`)
+})
 
 server.listen(port, () => {
   console.log("We solved it!");
