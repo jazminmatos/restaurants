@@ -1,23 +1,41 @@
-
 <main>
-    <h1>All Restaurants</h1>
-    <div class="all-restaurants">
-        {{#each restaurants}} <!-- for each restaurant in restaurants, create this html -->
-            <section class="restaurant">
-                <img class="restaurant-image" src="{{this.image}}"/>
-                <h2>{{name}}</h2>
-                <a href="/restaurants/{{id}}">See Restaurant</a>
-            </section>
-        {{/each}}
-    </div> 
-    <h1>Add Restaurant</h1>
-    <div class="all-restaurants-form">
-        <form action="/restaurants" method="post">
-            <input type="text" id="name" name="name" placeholder="Restaurant Name" required>
-            <br>
-            <input type="text" id="image" name="image" placeholder="Restaurant Image" required>
-            <input type="submit" value="Submit">
-        </form>
+  <h1>All Restaurants</h1>
+  <div class="container" style="--bs-columns: 4; --bs-gap: 5rem;">
+    <div
+      class="all-restaurants row row-cols-4 align-items-center"
+      style="--bs-columns: 4; --bs-gap: 5rem;"
+    >
+      {{#each restaurants}}
+        <!-- for each restaurant in restaurants, create this html -->
+        <section class="restaurant col">
+          <img class="restaurant-image" src="{{this.image}}" />
+          <h2>{{name}}</h2>
+          <a href="/restaurants/{{id}}">See Restaurant</a>
+
+        </section>
+      {{/each}}
     </div>
+  </div>
+  <h1>Add Restaurant</h1>
+  <div class="all-restaurants-form">
+    <form action="/restaurants" method="post">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Restaurant Name"
+        required
+      />
+      <br />
+      <input
+        type="text"
+        id="image"
+        name="image"
+        placeholder="Restaurant Image"
+        required
+      />
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
 
 </main>

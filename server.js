@@ -47,35 +47,26 @@ server.get("/restaurants", async (req, res) => {
 });
 
 server.post("/restaurants", async (req, res) => {
-  const test = await Restaurant.create(req.body)
-  console.log(test)
-  res.redirect(`/restaurants/${test.id}`)
+  const test = await Restaurant.create(req.body);
+  console.log(test);
+  res.redirect(`/restaurants/${test.id}`);
 });
 
 // this route returns HTML for a single restaurant
 // Get one restaurant
 server.get("/restaurants/:id", async (req, res) => {
-  const restaurant = await Restaurant.findByPk(req.params.id);
-  const menus = await Menu.findAll({
-    where: {
-      restaurant_id: req.params.id,
-    },
-  });
-  res.render("restaurant", { restaurant, menus });
-});
-
-// Get menus from restaurant
-server.get("/restaurants/:id/menus", async (req, res) => {
   const id = req.params.id;
+  const restaurant = await Restaurant.findByPk(id);
+
   const menus = await Menu.findAll({
     where: {
       restaurant_id: id,
     },
   });
 
-  const restaurant = await Restaurant.findByPk(id);
+  console.log(restaurant.id);
 
-  res.render("menus", { menus, restaurant });
+  res.render("restaurant", { restaurant, menus });
 });
 
 // Get selected menu from restaurant
@@ -90,9 +81,7 @@ server.get("/restaurants/:id/menus/:menuid", async (req, res) => {
     },
   });
   const restaurant = await Restaurant.findByPk(id);
-
-  res.render({ menu, menuItems, restaurant });
-
+  res.render("menuitem", { menu, menuItems, restaurant, restaurant });
 });
 
 server.post("/menu", async(req,res) => {

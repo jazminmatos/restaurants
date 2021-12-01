@@ -1,19 +1,23 @@
 <div class="single-restaurant">
-    <div class="box" >
+    <div class="all-restaurants-form " >
         <h2>{{restaurant.name}}</h2>
 
         <br>
         <h3>All Menus: </h3>
         <div class="food-menus">
          {{#each menus}}
-          <div class="food" key={{this.id}} >
-          <a href="/restaurants/{{../restaurant.id}}/menus/{{this.id}}">{{this.title}}</a></div>
+          <div class="food" key={{this.id}}>
+            <button
+    type="submit"
+    onclick="location.href='/restaurants/{{../restaurant.id}}/menus/{{this.id}}'"
+    class="btn"
+  >{{this.title}}</button>
+            </div>
         {{/each}}
-        
+
         </div>
     </div>
-    <div class="box">
-        <div class="colm">
+    <div class="all-restaurants-form ">
         <h3>Add Menu: </h3>
         <form >
             <label for="Mname">Menu name:</label>
@@ -22,9 +26,6 @@
             <input type="text" >
             <label for="price">Price:</label>
             <input type="text" >
-            <button>submit</button>
-        </form> 
-        </div>
+             <input type="submit" value="Submit" />
+        </form>
     </div>
-       
-
