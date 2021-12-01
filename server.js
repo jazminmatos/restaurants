@@ -32,6 +32,13 @@ server.use(express.json());
 
 seed();
 
+// Test
+server.get("/", (req, res) => {
+  console.log("hello");
+  res.send("Hi");
+});
+
+// November 29th Assignment:
 /* ----- READ ----- */
 // Get all restaurants
 server.get("/restaurants", async (req, res) => {
@@ -39,6 +46,13 @@ server.get("/restaurants", async (req, res) => {
   res.render("restaurants", { restaurants });
 });
 
+server.post("/restaurants", async (req, res) => {
+  const test = await Restaurant.create(req.body)
+  console.log(test)
+  res.redirect(`/restaurants/${test.id}`)
+});
+
+// this route returns HTML for a single restaurant
 // Get one restaurant
 server.get("/restaurants/:id", async (req, res) => {
   const restaurant = await Restaurant.findByPk(req.params.id);
