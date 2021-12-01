@@ -39,13 +39,19 @@ server.get("/", (req, res) => {
 });
 
 // November 29th Assignment:
-server.get("/web/restaurants", async (req, res) => {
+server.get("/restaurants", async (req, res) => {
   const restaurants = await Restaurant.findAll();
   res.render("restaurants", { restaurants });
 });
 
+server.post("/restaurants", async (req, res) => {
+  const test = await Restaurant.create(req.body)
+  console.log(test)
+  res.redirect(`/restaurants/${test.id}`)
+});
+
 // this route returns HTML for a single restaurant
-server.get("/web/restaurants/:id", async (req, res) => {
+server.get("/restaurants/:id", async (req, res) => {
   const restaurant = await Restaurant.findByPk(req.params.id);
   res.render("restaurant", { restaurant });
 });
