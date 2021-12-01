@@ -1,5 +1,46 @@
-<div class="restaurant">
-	<h2>Single Restaurant: {{restaurant.name}}</h2>
-    <br>
-    <button type="submit" onclick="location.href='/restaurants'" class="btn">See Restaurant List</button>
-</div>
+{{!-- <div class="restaurant">
+  <h2>Single Restaurant: {{restaurant.name}}</h2>
+  <br />
+  <button type="submit" onclick="location.href='/restaurants'" class="btn">See
+    Restaurant List</button>
+  <button
+    type="submit"
+    onclick="location.href='/restaurants/{{restaurant.id}}/menus/{{menu.id}}'"
+    class="btn"
+  >{{menu.id}}</button>
+
+</div> --}}
+
+<div class="single-restaurant">
+    <div class="box" >
+        <h2>{{restaurant.name}}</h2>
+
+        <br>
+        <h3>All Menus: </h3>
+        <div class="food-menus">
+         {{#each menus}}
+          <div class="food" key={{this.id}}>
+            <button
+    type="submit"
+    onclick="location.href='/restaurants/{{../restaurant.id}}/menus/{{this.id}}'"
+    class="btn"
+  >{{this.title}}</button>
+            </div>
+        {{/each}}
+
+        </div>
+    </div>
+    <div class="box">
+        <div class="colm">
+        <h3>Add Menu: </h3>
+        <form >
+            <label for="Mname">Menu name:</label>
+            <input type="text" >
+            <label for="Iname">Item name:</label>
+            <input type="text" >
+            <label for="price">Price:</label>
+            <input type="text" >
+            <button>submit</button>
+        </form>
+        </div>
+    </div>
